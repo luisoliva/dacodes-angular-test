@@ -1,1 +1,46 @@
-<p>home-page works!</p>
+<nz-tabset style="text-align: center" nzSize="default">
+    <nz-tab [nzTitle]="MxCup">
+        <ng-template #MxCup>
+            <i nz-icon nzType="trophy" nzTheme="outline"></i>Copa MX
+        </ng-template>
+        <ng-template nz-tab>
+            <div nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
+                <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
+                    <div class="venados-card">
+                        <div style="height: 40px; background-color: #444444; color: white; border-top-left-radius: 5px;border-top-right-radius: 5px" nz-row nzType="flex" nzAlign="middle" nzJustify="start">
+                            <div nz-col nzSpan="24">
+                                Abril
+                            </div>
+                        </div>
+                        <div class="venados-card-body" style="width: 100%; height:100px ">
+                            <div style="height: 100%" nz-row nzType="flex" nzAlign="middle" nzJustify="space-between">
+                                <div style="height: 80px; display: table" nz-col nzSpan="6">
+                                    <div style="display: table-cell; vertical-align: middle" nz-row>
+                                        <i style="font-size: 24px" nz-icon nzType="calendar" nzTheme="outline"></i>
+                                        <h5>12 abril 2020</h5>
+                                    </div>
+                                </div>
+                                <div style="height: 80px; display: flex" nz-col nzSpan="6">
+                                    <img style="margin: auto" src="../../../assets/img/venadoslogo.png" height="60" width="60"/>
+                                </div>
+                                <div style="height: 80px; display: table" nz-col nzSpan="6">
+                                    <div style="display: table-cell; vertical-align: middle" nz-row>
+                                        <h2>2 - 1</h2>
+                                    </div>
+                                </div>
+                                <div style="height: 80px;display: flex" nz-col nzSpan="6">
+                                    <img style="margin: auto" src="../../../assets/img/venadoslogo.png" height="60" width="60"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </nz-tab>
+    <nz-tab [nzTitle]="ascentCup">
+        <ng-template #ascentCup>
+            <i nz-icon nzType="arrow-up" nzTheme="outline"></i>Ascenso MX
+        </ng-template>
+    </nz-tab>
+</nz-tabset>

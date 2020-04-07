@@ -1,0 +1,14 @@
+.venados-card{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e4e4e4;
+    border-radius: 50%;
+}
+
+.venados-card-body{
+    background-color: #e8e8e8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
