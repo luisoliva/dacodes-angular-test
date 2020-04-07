@@ -9,12 +9,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { LayoutContentComponent } from './components/layout-content/layout-content.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
+import { PlayersPageComponent } from './pages/players-page/players-page.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainLayoutComponent,
+    LayoutContentComponent,
+    HomePageComponent,
+    StatisticsPageComponent,
+    PlayersPageComponent
   ],
   imports: [
     BrowserModule,
