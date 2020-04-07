@@ -1,0 +1,54 @@
+.layout {
+    height: 100vh;
+}
+
+.example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+}
+
+#config{
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#config:hover{
+    background-color: #daa301;
+    border-radius: 10%;
+}
+
+.logo {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    height: 178px;
+}
+
+nz-header {
+    background: #fff;
+    padding: 0;
+}
+
+nz-content {
+    margin: 24px 16px 0;
+}
+
+.inner-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 360px;
+}
+
+nz-footer {
+    text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+    #triggerSideMenu{
+        display:none;
+    }
+}
