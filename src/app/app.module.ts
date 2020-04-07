@@ -13,6 +13,9 @@ import { LayoutContentComponent } from './layouts/layout-content/layout-content.
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 import { PlayersPageComponent } from './pages/players-page/players-page.component';
+import { VenadosCardComponent } from './components/shared/venados-card/venados-card.component';
+import { MonthCardComponent } from './components/home/month-card/month-card.component';
+import { GameContainerComponent } from './components/home/game-container/game-container.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -23,6 +26,9 @@ registerLocaleData(en);
     HomePageComponent,
     StatisticsPageComponent,
     PlayersPageComponent,
+    VenadosCardComponent,
+    MonthCardComponent,
+    GameContainerComponent,
   ],
   imports: [
     BrowserModule,
