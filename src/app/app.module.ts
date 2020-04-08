@@ -18,6 +18,7 @@ import { MonthCardComponent } from './components/home/month-card/month-card.comp
 import { GameContainerComponent } from './components/home/game-container/game-container.component';
 import {VenadosGamesDataService} from './core/services/VenadosGamesData.service';
 import {AddHeaderRequestInterceptor} from './core/AddHeaderRequestInterceptor';
+import {LoadingService} from './core/services/Loading.service';
 registerLocaleData(en);
 
 @NgModule({
@@ -43,7 +44,9 @@ registerLocaleData(en);
   providers: [
       { provide: NZ_I18N, useValue: en_US },
       {provide: HTTP_INTERCEPTORS, useClass: AddHeaderRequestInterceptor, multi: true},
-      VenadosGamesDataService],
+      VenadosGamesDataService,
+      LoadingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Game} from '../../../core/models/Game';
-import {VenadosGamesDataService} from '../../../core/services/VenadosGamesData.service';
 
 @Component({
   selector: 'app-game-container',
@@ -10,10 +9,9 @@ import {VenadosGamesDataService} from '../../../core/services/VenadosGamesData.s
 export class GameContainerComponent implements OnInit {
     public gameData: Game = null;
 
-    constructor(private gamesService: VenadosGamesDataService) { }
+    constructor() { }
 
     ngOnInit(): void {
-        this.gamesService.getAll();
-    }
 
+    }
 }

@@ -6,6 +6,7 @@ export const HTTPHEADER = {
         'Accept': 'application/json'
     })
 };
-export interface IDataReaderService {
+export interface IDataReaderService<T> {
     getAll(): Observable<any>;
+    parseModel(object: any): T;
 }
