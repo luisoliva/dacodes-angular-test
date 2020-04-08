@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -16,6 +16,8 @@ import { PlayersPageComponent } from './pages/players-page/players-page.componen
 import { VenadosCardComponent } from './components/shared/venados-card/venados-card.component';
 import { MonthCardComponent } from './components/home/month-card/month-card.component';
 import { GameContainerComponent } from './components/home/game-container/game-container.component';
+import {VenadosGamesDataService} from './core/services/VenadosGamesData.service';
+import {AddHeaderRequestInterceptor} from './core/AddHeaderRequestInterceptor';
 registerLocaleData(en);
 
 @NgModule({
@@ -38,7 +40,10 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [
+      { provide: NZ_I18N, useValue: en_US },
+      {provide: HTTP_INTERCEPTORS, useClass: AddHeaderRequestInterceptor, multi: true},
+      VenadosGamesDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

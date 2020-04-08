@@ -5,11 +5,18 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class VenadosGamesDataService implements IDataReaderService{
-    private apiBaseUrl: string = ' https://venados.dacodes.mx/api/games';
+    private apiBaseUrl: string = 'https://venados.dacodes.mx/api/games';
 
     constructor(private httpClient: HttpClient) {}
 
-    getAll(): Observable<any> {
-        return this.httpClient.get(this.apiBaseUrl, HTTPHEADER);
+    getAll(): any {
+        debugger
+        return this.httpClient.get(this.apiBaseUrl).toPromise().then(res=>{
+            debugger
+        })
+            .catch(e=>{
+                debugger
+            });
+
     }
 }

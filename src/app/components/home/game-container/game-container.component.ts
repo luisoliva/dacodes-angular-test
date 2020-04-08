@@ -8,23 +8,12 @@ import {VenadosGamesDataService} from '../../../core/services/VenadosGamesData.s
   styleUrls: ['./game-container.component.css']
 })
 export class GameContainerComponent implements OnInit {
-    private gameData: Game;
+    public gameData: Game = null;
 
     constructor(private gamesService: VenadosGamesDataService) { }
 
     ngOnInit(): void {
-       let request =  this.gamesService.getAll();
-
-       request.toPromise()
-           .then(response => {
-                console.log(response);
-            })
-           .catch(error =>{
-               console.log(error)
-           })
-           .finally(()=>{
-
-           });
+        this.gamesService.getAll();
     }
 
 }
