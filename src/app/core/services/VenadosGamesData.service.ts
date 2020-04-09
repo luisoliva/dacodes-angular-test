@@ -8,15 +8,16 @@ import {formatDate} from '@angular/common';
 @Injectable()
 export class VenadosGamesDataService implements IDataReaderService<Array<Games>>{
     private apiBaseUrl: string = '/api/games';
+
     constructor(private httpClient: HttpClient) {}
 
-    getAll(): Observable<any> {
-        return this.httpClient.get(this.apiBaseUrl);
+     getAll(): Observable<any> {
+        return this.httpClient.get(this.apiBaseUrl)
     }
 
-    parseModel(object: any): Array<Games> {
+    parseJson(object: any, filter:string): Array<Games> {
         let data: Games = object.data;
-        return this.getByMonth(this.getByLeague("Copa MX", data));
+        return this.getByMonth(this.getByLeague(filter, data));
     }
 
     getByLeague(league: string, games: Games): Games{

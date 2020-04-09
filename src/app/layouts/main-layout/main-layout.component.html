@@ -9,7 +9,8 @@
     <nz-layout>
         <nz-sider
                 nzCollapsible
-                [(nzCollapsed)]="isCollapsed"
+                [nzCollapsed]="isCollapsed"
+                (nzCollapsedChange)="collapsedStateChange($event)"
                 [nzBreakpoint]="'lg'"
                 [nzCollapsedWidth]="0"
                 [nzTrigger]="null"
@@ -45,18 +46,20 @@
                 </li>
             </ul>
         </nz-sider>
-        <nz-content style="margin: 0 0 0">
-            <nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="isContentLoading">
-                <div style="margin: 0; min-width: 300px;" class="inner-content">
-                    <app-layout-content></app-layout-content>
-                </div>
-            </nz-spin>
-            <nz-footer nz-col nzSpan="24" style="background-color: black; color: white; min-width: 300px">Diseñado e implementado por Luis Oliva</nz-footer>
-            <ng-template #indicatorTemplate>
-                <div style="width: 100%">
-                    <i nz-icon nzType="loading" style="font-size: 60px;margin-top: 225px;position: fixed; margin-left: -20px"></i>
-                </div>
-            </ng-template>
+        <nz-content style="margin:0">
+            <div [ngStyle]="{'min-width.px': minWidth}">
+                <nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="isContentLoading">
+                    <div class="inner-content">
+                        <app-layout-content></app-layout-content>
+                    </div>
+                </nz-spin>
+                <nz-footer nz-col nzSpan="24" style="background-color: black; color: white;">Diseñado e implementado por Luis Oliva</nz-footer>
+                <ng-template #indicatorTemplate>
+                    <div style="width: 100%">
+                        <i nz-icon nzType="loading" style="font-size: 60px;margin-top: 225px;position: fixed; margin-left: -20px"></i>
+                    </div>
+                </ng-template>
+            </div>
         </nz-content>
     </nz-layout>
 </nz-layout>

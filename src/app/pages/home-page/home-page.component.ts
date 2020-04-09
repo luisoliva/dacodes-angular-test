@@ -9,7 +9,8 @@ import {LoadingService} from '../../core/services/Loading.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-    private gamesByMonth: Array<Games>;
+    cupGamesByMonthData: Array<Games>;
+    ascentGamesByMonthData: Array<Games>;
 
     constructor(private gamesService: VenadosGamesDataService,
                 private loadingService: LoadingService) { }
@@ -23,15 +24,14 @@ export class HomePageComponent implements OnInit {
         let request = this.gamesService.getAll();
         request.toPromise()
             .then(response=>{
-                this.gamesByMonth = this.gamesService.parseModel(response);
+                this.cupGamesByMonthData = this.gamesService.parseJson(response, 'Copa MX');
+                this.ascentGamesByMonthData = this.gamesService.parseJson(response, 'Ascenso MX');
             })
             .catch(error=>{
                 console.log(error);
             })
             .finally(()=>{
-                console.log(this.gamesByMonth);
                 this.loadingService.stopLoading();
             })
     }
-
 }
