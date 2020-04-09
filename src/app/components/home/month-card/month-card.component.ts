@@ -16,7 +16,7 @@ export class MonthCardComponent implements OnInit {
     }
 
     getMonth(): string{
-        let date = formatDate(this.gamesInMonth.games[0].datetime, 'shortDate','en-US');
+        let date = formatDate(this.gamesInMonth.games[0].datetime, 'shortDate','en-US', '+0000');
         let splitedDate = date.split('/');
         let monthInteger = parseInt(splitedDate[0]);
         return this.months[monthInteger-1]

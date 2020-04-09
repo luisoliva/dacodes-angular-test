@@ -34,7 +34,7 @@ export class VenadosGamesDataService implements IDataReaderService<Array<Games>>
         let dataByMonth: Array<Games> = new Array<Games>();
         let monthsInGames = [];
         games.games.forEach(function(element) {
-            let date = VenadosGamesDataService.getMonthInDate(formatDate(element.datetime, 'shortDate','en-US'));
+            let date = VenadosGamesDataService.getMonthInDate(formatDate(element.datetime, 'shortDate','en-US','+0000'));
             let index = monthsInGames.indexOf(date);
             if (index === -1){
                 monthsInGames.push(date);

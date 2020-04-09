@@ -1,11 +1,11 @@
 <div class="bottom-bordered-container" style="height: 115px;" nz-row nzType="flex" nzAlign="middle" nzJustify="space-between">
-    <div style="height: 80px; display: table" nz-col nzSpan="6">
+    <div style="height: 80px; display: table" nz-col nzSpan="5">
         <div style="display: table-cell; vertical-align: middle" nz-row>
             <i style="font-size: 24px" nz-icon nzType="calendar" nzTheme="outline"></i>
-            <h5>{{getCorrectDate()}}</h5>
+            <h5>{{gameData.datetime | date : "dd/MM/yy" : "+0000"}}</h5>
         </div>
     </div>
-    <div style="height: 80px" nz-col nzSpan="6">
+    <div style="height: 80px" nz-col nzSpan="7">
         <div nz-row>
             <img style="margin: auto" src="../../../../assets/img/venadoslogo.png" height="60" width="60"/>
         </div>
@@ -13,12 +13,12 @@
             <h5>Venados</h5>
         </div>
     </div>
-    <div style="height: 80px; display: table" nz-col nzSpan="6">
+    <div style="height: 80px; display: table" nz-col nzSpan="5">
         <div style="display: table-cell; vertical-align: middle" nz-row>
             <h2>{{gameData.home_score}} - {{gameData.away_score}}</h2>
         </div>
     </div>
-    <div style="height: 80px;" nz-col nzSpan="6">
+    <div style="height: 80px;" nz-col nzSpan="7">
         <div nz-row>
             <img style="margin: auto" src="{{gameData.opponent_image}}" height="60" width="60"/>
         </div>
