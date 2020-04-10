@@ -13,5 +13,4 @@ export class PlayersPageComponent implements OnInit {
   ngOnInit(): void {
       this.tabSelectorService.module = 3;
   }
-
 }
