@@ -3,6 +3,7 @@ import {VenadosStatisticsService} from '../../core/services/VenadosStatisticsSer
 import {LoadingService} from '../../core/services/Loading.service';
 import {StatisticsModel} from '../../core/models/Statistics.model';
 import {TabSelectorService} from '../../core/services/TabSelector.service';
+import {NzNotificationService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-statistics-page',
@@ -14,7 +15,8 @@ export class StatisticsPageComponent implements OnInit {
 
   constructor(private venadosStatisticsService: VenadosStatisticsService,
               private loadingService: LoadingService,
-              private tabSelectorService: TabSelectorService) { }
+              private tabSelectorService: TabSelectorService,
+              private notificationService: NzNotificationService) { }
 
   ngOnInit(): void {
       this.tabSelectorService.module = 2;
@@ -23,8 +25,7 @@ export class StatisticsPageComponent implements OnInit {
       promise.then( response =>{
           this.statistics = this.venadosStatisticsService.parseJson(response)
       }).catch(error=>{
-          this.loadingService.stopLoading();
-          console.log(error);
+          this.notificationService.error("Error de conexión","No se pudo establecer la comunicación con el servidor debido al siguiente error: " + error.message);
       }).finally(()=>
         this.loadingService.stopLoading()
       )

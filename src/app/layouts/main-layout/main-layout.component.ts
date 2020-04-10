@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs';
 import {LoadingService} from '../../core/services/Loading.service';
 import {Router} from '@angular/router';
 import {TabSelectorService} from '../../core/services/TabSelector.service';
+import {NzNotificationService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-main-layout',
@@ -18,7 +19,8 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     tabSelectorSubscription;
 
     constructor(private loadingSingletonService: LoadingService,
-                private tabSelectorService: TabSelectorService) { }
+                private tabSelectorService: TabSelectorService,
+                private notificationService: NzNotificationService) { }
 
     @HostListener('window:resize', ['$event'])
     onResize(event){
@@ -53,5 +55,9 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
         }else{
             this.minWidth = window.innerWidth - 280;
         }
+    }
+
+    showNotification(message: string) {
+        this.notificationService.warning("Notificación de sistema",message);
     }
 }

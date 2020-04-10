@@ -3,6 +3,7 @@ import {VenadosGamesDataService} from '../../core/services/VenadosGamesData.serv
 import {Games} from '../../core/models/Games';
 import {LoadingService} from '../../core/services/Loading.service';
 import {TabSelectorService} from '../../core/services/TabSelector.service';
+import {NzNotificationService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +16,8 @@ export class HomePageComponent implements OnInit {
 
     constructor(private gamesService: VenadosGamesDataService,
                 private loadingService: LoadingService,
-                private tabSelectorService: TabSelectorService) { }
+                private tabSelectorService: TabSelectorService,
+                private notificationService: NzNotificationService) { }
 
     ngOnInit(): void {
         this.getApiData();
@@ -35,7 +37,8 @@ export class HomePageComponent implements OnInit {
                 this.ascentGamesByMonthData = this.gamesService.parseJson(response, 'Ascenso MX');
             })
             .catch(error=>{
-                console.log(error);
+                debugger
+                this.notificationService.error("Error de conexión","No se pudo establecer la comunicación con el servidor debido al siguiente error: " + error.message);
             })
             .finally(()=>{
                 this.loadingService.stopLoading();
