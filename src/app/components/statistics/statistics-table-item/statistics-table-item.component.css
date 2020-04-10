@@ -1,5 +1,3 @@
-.bottom-bordered-container{
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #b4b4b4;
+.hoverable-item:hover{
+    background-color: #cfcfcf;
 }
