@@ -1,1 +1,9 @@
-<p>players-page works!</p>
+<div *ngIf="!getLoadingState()">
+    <h2 style="text-align: center;">Jugadores</h2>
+    <div style="margin-top: 20px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
+        <app-player-card *ngFor="let player of team.forwards" [player]="player"></app-player-card>
+        <app-player-card *ngFor="let player of team.centers" [player]="player"></app-player-card>
+        <app-player-card *ngFor="let player of team.defenses" [player]="player"></app-player-card>
+        <app-player-card *ngFor="let player of team.goalkeepers" [player]="player"></app-player-card>
+    </div>
+</div>
