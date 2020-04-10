@@ -19,6 +19,10 @@ export class HomePageComponent implements OnInit {
         this.getApiData();
     }
 
+    getLoadingState(): boolean{
+        return this.loadingService.loading;
+    }
+
     getApiData(){
         this.loadingService.startLoading();
         let request = this.gamesService.getAll();

@@ -27,4 +27,8 @@ export class StatisticsPageComponent implements OnInit {
       )
   }
 
+  getLoadingState(): boolean{
+      return this.loadingService.loading;
+  }
+
 }

@@ -1,4 +1,4 @@
-<div *ngIf="!loadingService.loading">
+<div *ngIf="!getLoadingState()">
     <nz-tabset style="text-align: center; margin-top: -15px" nzSize="default">
         <nz-tab [nzTitle]="MxCup">
             <ng-template #MxCup>
