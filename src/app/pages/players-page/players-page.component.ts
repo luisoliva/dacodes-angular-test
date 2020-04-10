@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TabSelectorService} from '../../core/services/TabSelector.service';
 
 @Component({
   selector: 'app-players-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tabSelectorService: TabSelectorService) { }
 
   ngOnInit(): void {
+      this.tabSelectorService.module = 3;
   }
 
 }

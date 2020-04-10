@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {LoadingService} from '../../core/services/Loading.service';
+import {Router} from '@angular/router';
+import {TabSelectorService} from '../../core/services/TabSelector.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -12,8 +14,11 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     isContentLoading: boolean = false;
     loadingSubscription : Subscription;
     minWidth: number = window.innerWidth;
+    activeModule: number;
+    tabSelectorSubscription;
 
-    constructor(private loadingSingletonService: LoadingService) { }
+    constructor(private loadingSingletonService: LoadingService,
+                private tabSelectorService: TabSelectorService) { }
 
     @HostListener('window:resize', ['$event'])
     onResize(event){
@@ -27,6 +32,9 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.loadingSubscription = this.loadingSingletonService.loadingStatus.subscribe((value) => setTimeout(()=>{
             this.isContentLoading = value;
+        }));
+        this.tabSelectorSubscription = this.tabSelectorService.currentModule.subscribe((value)=> setTimeout(()=>{
+            this.activeModule = value;
         }));
     }
 
