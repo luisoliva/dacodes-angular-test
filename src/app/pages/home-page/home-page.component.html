@@ -5,6 +5,7 @@
                 <i nz-icon nzType="trophy" nzTheme="outline"></i>Copa MX
             </ng-template>
             <ng-template nz-tab>
+                <h2 style="text-align: center;">Partidos</h2>
                 <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
                     <div *ngFor="let item of cupGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
                         <app-month-card  [gamesInMonth]="item"></app-month-card>
@@ -17,6 +18,7 @@
                 <i nz-icon nzType="arrow-up" nzTheme="outline"></i>Ascenso MX
             </ng-template>
             <ng-template nz-tab>
+                <h2 style="text-align: center;">Partidos</h2>
                 <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
                     <div *ngFor="let item of ascentGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
                         <app-month-card  [gamesInMonth]="item"></app-month-card>

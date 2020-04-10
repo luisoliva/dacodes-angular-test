@@ -1,4 +1,4 @@
-<div style="width: 250px; margin: 10px 10px">
+<div *ngIf="!isCoach" style="width: 150px; margin: 10px 10px">
     <app-venados-card [headerComponent]="header" [bodyComponent]="body"></app-venados-card>
     <ng-template #header>
         <div style="text-align: center" nz-col nzSpan="24">
@@ -9,7 +9,23 @@
         <div style="height: 110px;" nz-row nzAlign="middle" nzType="flex" nzJustify="center">
             <img style="border-radius: 50%" src="{{player.image}}" height="90" width="90"/></div>
         <div nz-row>
-            <h3 style="text-align: center">{{player.first_surname}} {{player.second_surname}}</h3>
+            <h4 style="text-align: center">{{player.first_surname}} {{player.second_surname}}</h4>
+        </div>
+    </ng-template>
+</div>
+
+<div *ngIf="isCoach" style="width: 150px; margin: 10px 10px">
+    <app-venados-card [headerComponent]="header" [bodyComponent]="body"></app-venados-card>
+    <ng-template #header>
+        <div style="text-align: center" nz-col nzSpan="24">
+            {{coach.role}}
+        </div>
+    </ng-template>
+    <ng-template #body>
+        <div style="height: 110px;" nz-row nzAlign="middle" nzType="flex" nzJustify="center">
+            <img style="border-radius: 50%" src="{{coach.image}}" height="90" width="90"/></div>
+        <div nz-row>
+            <h4 style="text-align: center">{{coach.first_surname}} {{coach.second_surname}}</h4>
         </div>
     </ng-template>
 </div>
