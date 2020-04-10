@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {PlayerModel} from '../../../core/models/Player.model';
 import {CoachModel} from '../../../core/models/Coach.model';
+import {NzModalService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-player-card',
@@ -12,10 +13,11 @@ export class PlayerCardComponent implements OnInit {
     player: Partial<PlayerModel>;
     coach: Partial<CoachModel>;
     isCoach: boolean;
-    constructor() { }
+    modal;
+
+    constructor(private modalService:NzModalService) { }
 
     ngOnInit(): void {
-        debugger
         if(this.model.hasOwnProperty('role')){
             this.isCoach = true;
             this.coach = this.model;
@@ -25,4 +27,16 @@ export class PlayerCardComponent implements OnInit {
         }
     }
 
+    showInformationModal(modalTitle: TemplateRef<{}>, modalContent: TemplateRef<{}>, modalFooter: TemplateRef<{}>){
+        this.modal = this.modalService.create({
+            nzTitle: modalTitle,
+            nzContent: modalContent,
+            nzFooter: modalFooter,
+            nzStyle:{top:'30px'}
+        })
+    }
+
+    destroyModal(){
+        this.modal.destroy();
+    }
 }

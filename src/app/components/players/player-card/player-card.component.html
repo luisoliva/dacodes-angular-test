@@ -1,4 +1,4 @@
-<div *ngIf="!isCoach" style="width: 150px; margin: 10px 10px">
+<div (click)="showInformationModal(playerTitle,playerContent, playerFooter)" class="card-hoverable" *ngIf="!isCoach" style="width: 150px; margin: 10px 10px">
     <app-venados-card [headerComponent]="header" [bodyComponent]="body"></app-venados-card>
     <ng-template #header>
         <div style="text-align: center" nz-col nzSpan="24">
@@ -8,13 +8,76 @@
     <ng-template #body>
         <div style="height: 110px;" nz-row nzAlign="middle" nzType="flex" nzJustify="center">
             <img style="border-radius: 50%" src="{{player.image}}" height="90" width="90"/></div>
-        <div nz-row>
-            <h4 style="text-align: center">{{player.first_surname}} {{player.second_surname}}</h4>
+        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 50px">
+            <h4 style="text-align: center; margin-top: -5px;">{{player.name}} {{player.first_surname}} {{player.second_surname}}</h4>
         </div>
     </ng-template>
+    <ng-template #playerTitle>
+        <div style="width: 100%; text-align: center">Ficha técnica</div>
+    </ng-template>
+    <ng-template #playerContent>
+        <div style="max-height: 400px; overflow-x: hidden;">
+            <div nz-row nzAlign="middle" nzJustify="center" nzType="flex">
+                <div style="text-align: center" nz-col nzSpan="12">
+                    <img style="border-radius: 0" src="{{player.image}}" height="160" width="160"/>
+                </div>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">{{player.name}} {{player.first_surname}} {{player.second_surname}}</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.position}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Número de playera</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.number}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Fecha de nacimiento</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.birthday | date : "dd/MM/yy" : "+0000"}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Lugar de nacimiento</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.birth_place}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Peso</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.weight}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Estatura</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.height}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Equipo anterior</h3>
+            </div>
+            <div style="margin-bottom: -15px" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{player.last_team}}</h4>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #playerFooter>
+        <button nz-button nzType="primary" (click)="destroyModal()">Cerrar</button>
+    </ng-template>
 </div>
-
-<div *ngIf="isCoach" style="width: 150px; margin: 10px 10px">
+<div (click)="showInformationModal(coachTitle, coachContent, coachFooter)" class="card-hoverable" *ngIf="isCoach" style="width: 150px; margin: 10px 10px">
     <app-venados-card [headerComponent]="header" [bodyComponent]="body"></app-venados-card>
     <ng-template #header>
         <div style="text-align: center" nz-col nzSpan="24">
@@ -23,9 +86,46 @@
     </ng-template>
     <ng-template #body>
         <div style="height: 110px;" nz-row nzAlign="middle" nzType="flex" nzJustify="center">
-            <img style="border-radius: 50%" src="{{coach.image}}" height="90" width="90"/></div>
-        <div nz-row>
-            <h4 style="text-align: center">{{coach.first_surname}} {{coach.second_surname}}</h4>
+            <img style="border-radius: 50%" src="{{coach.image}}" height="90" width="90"/>
         </div>
+        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 50px">
+            <h4 style="text-align: center;margin-top: -5px;">{{coach.name}} {{coach.first_surname}} {{coach.second_surname}}</h4>
+        </div>
+    </ng-template>
+    <ng-template #coachTitle>
+        <div style="width: 100%; text-align: center">Ficha técnica</div>
+    </ng-template>
+    <ng-template #coachContent>
+        <div style="max-height: 400px; overflow-x: hidden;">
+            <div nz-row nzAlign="middle" nzJustify="center" nzType="flex">
+                <div style="text-align: center" nz-col nzSpan="12">
+                    <img style="border-radius: 0" src="{{coach.image}}" height="160" width="160"/>
+                </div>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">{{coach.name}} {{coach.first_surname}} {{coach.second_surname}}</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{coach.role}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Fecha de nacimiento</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{coach.birthday | date : "dd/MM/yy" : "+0000"}}</h4>
+            </div>
+            <br>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 20px">
+                <h3 style="text-align: center; margin-top: -5px;">Lugar de nacimiento</h3>
+            </div>
+            <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                <h4 style="font-weight: normal">{{coach.birth_place}}</h4>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #coachFooter>
+        <button nz-button nzType="primary" (click)="destroyModal()">Cerrar</button>
     </ng-template>
 </div>
