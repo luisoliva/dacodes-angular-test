@@ -1,0 +1,65 @@
+<nz-layout class="layout">
+    <nz-header style="height: 60px; background-color: #000000; min-width: 300px">
+        <i id="triggerSideMenu" (click)="isCollapsed = !isCollapsed" style="color: white; float: left; font-size: 25px; margin-top: 16px; margin-left: 12px; margin-right: -37px" nz-icon nzType="menu" nzTheme="outline"></i>
+        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle" style="height: 100%;">
+            <img src="../../../assets/img/venadoslogo.png" height="40" style="margin-top: -7px; margin-right: 5px; margin-left: -5px"/>
+            <h3 style="color: #ffffff; margin-top: -4px">Venados test</h3>
+        </div>
+    </nz-header>
+    <nz-layout>
+        <nz-sider
+                nzCollapsible
+                [nzCollapsed]="isCollapsed"
+                (nzCollapsedChange)="collapsedStateChange($event)"
+                [nzBreakpoint]="'lg'"
+                [nzCollapsedWidth]="0"
+                [nzTrigger]="null"
+                [nzWidth]="280"
+                style="background-color: #343739;"
+        >
+            <div class="logo">
+                <div nz-row nzType="flex" nzAlign="middle" nzJustify="start" style="height: 83px">
+                    <img src="../../../assets/img/venadoslogo.png" height="70" width="70">
+                </div>
+                <div nz-row nzType="flex" nzAlign="middle" nzJustify="start" style="height: 75px; color: white;min-width: 250px">
+                    <div style="padding-left: 8px;" nz-col nzSpan="18">
+                        <h4 style="color: white; font-weight: normal">Luis Alberto Oliva Medina</h4>
+                        <h4 style="color: white; font-weight: normal">luisoliva@example.com</h4>
+                    </div>
+                    <div (click)="showNotification('Esta aplicación solo es una prueba, funcionalidad limitada')" id="config" nz-col style="text-align: center;" nzSpan="6">
+                        <i style="font-size: 18px; padding-top: 15px;padding-bottom: 15px" nz-icon nzType="setting" nzTheme="fill"></i>
+                    </div>
+                </div>
+            </div>
+            <ul style="background-color: #343739" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+                <li routerLink="home" [nzSelected]="this.activeModule == 1" nz-menu-item>
+                    <i nz-icon nzType="home" nzTheme="outline"></i>
+                    <span>Home</span>
+                </li>
+                <li routerLink="statistics" [nzSelected]="this.activeModule == 2" nz-menu-item>
+                    <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+                    <span>Estadísticas</span>
+                </li>
+                <li routerLink="players" [nzSelected]="this.activeModule == 3" nz-menu-item>
+                    <i nz-icon nzType="team" nzTheme="outline"></i>
+                    <span>Jugadores</span>
+                </li>
+            </ul>
+        </nz-sider>
+        <nz-content style="margin:0">
+            <div [ngStyle]="{'min-width.px': minWidth}">
+                <nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="isContentLoading">
+                    <div class="inner-content">
+                        <app-layout-content></app-layout-content>
+                    </div>
+                </nz-spin>
+                <nz-footer nz-col nzSpan="24" style="background-color: black; color: white;">Diseñado e implementado por Luis Oliva</nz-footer>
+                <ng-template #indicatorTemplate>
+                    <div style="width: 100%">
+                        <i nz-icon nzType="loading" style="font-size: 60px;margin-top: 225px;position: fixed; margin-left: -20px"></i>
+                    </div>
+                </ng-template>
+            </div>
+        </nz-content>
+    </nz-layout>
+</nz-layout>
