@@ -19,6 +19,9 @@ import { GameContainerComponent } from './components/home/game-container/game-co
 import {VenadosGamesDataService} from './core/services/VenadosGamesData.service';
 import {AddHeaderRequestInterceptor} from './core/AddHeaderRequestInterceptor';
 import {LoadingService} from './core/services/Loading.service';
+import { StatisticsTableComponent } from './components/statistics/statistics-table/statistics-table.component';
+import { StatisticsTableItemComponent } from './components/statistics/statistics-table-item/statistics-table-item.component';
+import {VenadosStatisticsService} from './core/services/VenadosStatisticsService';
 registerLocaleData(en);
 
 @NgModule({
@@ -32,6 +35,8 @@ registerLocaleData(en);
     VenadosCardComponent,
     MonthCardComponent,
     GameContainerComponent,
+    StatisticsTableComponent,
+    StatisticsTableItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ registerLocaleData(en);
       { provide: NZ_I18N, useValue: en_US },
       {provide: HTTP_INTERCEPTORS, useClass: AddHeaderRequestInterceptor, multi: true},
       VenadosGamesDataService,
+      VenadosStatisticsService,
       LoadingService
   ],
   bootstrap: [AppComponent]

@@ -1,26 +1,28 @@
-<nz-tabset style="text-align: center; margin-top: -15px" nzSize="default">
-    <nz-tab [nzTitle]="MxCup">
-        <ng-template #MxCup>
-            <i nz-icon nzType="trophy" nzTheme="outline"></i>Copa MX
-        </ng-template>
-        <ng-template nz-tab>
-            <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
-                <div *ngFor="let item of cupGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
-                    <app-month-card  [gamesInMonth]="item"></app-month-card>
+<div *ngIf="!loadingService.loading">
+    <nz-tabset style="text-align: center; margin-top: -15px" nzSize="default">
+        <nz-tab [nzTitle]="MxCup">
+            <ng-template #MxCup>
+                <i nz-icon nzType="trophy" nzTheme="outline"></i>Copa MX
+            </ng-template>
+            <ng-template nz-tab>
+                <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
+                    <div *ngFor="let item of cupGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
+                        <app-month-card  [gamesInMonth]="item"></app-month-card>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-    </nz-tab>
-    <nz-tab [nzTitle]="ascentCup">
-        <ng-template #ascentCup>
-            <i nz-icon nzType="arrow-up" nzTheme="outline"></i>Ascenso MX
-        </ng-template>
-        <ng-template nz-tab>
-            <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
-                <div *ngFor="let item of ascentGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
-                    <app-month-card  [gamesInMonth]="item"></app-month-card>
+            </ng-template>
+        </nz-tab>
+        <nz-tab [nzTitle]="ascentCup">
+            <ng-template #ascentCup>
+                <i nz-icon nzType="arrow-up" nzTheme="outline"></i>Ascenso MX
+            </ng-template>
+            <ng-template nz-tab>
+                <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
+                    <div *ngFor="let item of ascentGamesByMonthData" nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="8" style="margin-top: 16px">
+                        <app-month-card  [gamesInMonth]="item"></app-month-card>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-    </nz-tab>
-</nz-tabset>
+            </ng-template>
+        </nz-tab>
+    </nz-tabset>
+</div>

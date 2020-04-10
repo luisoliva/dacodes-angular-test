@@ -30,6 +30,7 @@ export class VenadosGamesDataService implements IDataReaderService<Array<Games>>
         return data;
     }
 
+
     getByMonth(games: Games): Array<Games>{
         let dataByMonth: Array<Games> = new Array<Games>();
         let monthsInGames = [];
