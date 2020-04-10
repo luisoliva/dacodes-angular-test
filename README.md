@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
+## Instructions to run the project
+1. Run `npm install` to install the angular core and all project libraries and dependencies, this may take some minutes.
+
+2. When the installation finishes, run `npm start` to start the web development server with the custom proxy configuration to avoid CORS policy problems. This may take a few minutes.
+
+3. Finally after `npm start` command ends, open the web browser at `http://localhost:4200` to open and visualize the project.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
