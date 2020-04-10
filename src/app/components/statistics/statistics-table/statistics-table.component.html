@@ -1,0 +1,23 @@
+<app-venados-card [headerComponent]="header" [bodyComponent]="body"></app-venados-card>
+<ng-template #header>
+    <div style="padding: 8px 10px 10px; width: 100%;text-align: center">
+        <div nz-col nzXs="5" nzSm="4" nzMd="3" nzLg="3" nzXl="2" nzXXl="2">
+            <div style="font-weight: bold">Posición</div>
+        </div>
+        <div nz-col nzXs="13" nzSm="14" nzMd="15" nzLg="15" nzXl="16" nzXXl="16" style="text-align: left; padding-left: 2px">
+            <div style="font-weight: bold">Equipo</div>
+        </div>
+        <div nz-col nzSpan="2">
+            <div style="font-weight: bold">JJ</div>
+        </div>
+        <div nz-col nzSpan="2">
+            <div style="font-weight: bold">DG</div>
+        </div>
+        <div nz-col nzSpan="2">
+            <div style="font-weight: bold">PTS</div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #body>
+ <app-statistics-table-item *ngFor="let team of statistics" [team]="team"></app-statistics-table-item>
+</ng-template>

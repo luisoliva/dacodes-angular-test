@@ -1,1 +1,8 @@
-<p>statistics-page works!</p>
+<div *ngIf="!loadingService.loading">
+    <h2 style="text-align: center;">Tabla general</h2>
+    <div style="margin-top: -10px" nz-row nzGutter="16" nzAlign="top" nzType="flex" nzJustify="center">
+        <div nz-col nzXs="24" nzSm="20" nzMd="20" nzLg="20" nzXl="19" nzXXl="19" style="margin-top: 16px">
+            <app-statistics-table [statistics]="statistics"></app-statistics-table>
+        </div>
+    </div>
+</div>
