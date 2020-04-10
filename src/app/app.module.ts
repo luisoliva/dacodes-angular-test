@@ -23,6 +23,8 @@ import { StatisticsTableComponent } from './components/statistics/statistics-tab
 import { StatisticsTableItemComponent } from './components/statistics/statistics-table-item/statistics-table-item.component';
 import {VenadosStatisticsService} from './core/services/VenadosStatisticsService';
 import {TabSelectorService} from './core/services/TabSelector.service';
+import { PlayerCardComponent } from './components/players/player-card/player-card.component';
+import {VenadosPlayersService} from './core/services/VenadosPlayers.service';
 registerLocaleData(en);
 
 @NgModule({
@@ -38,6 +40,7 @@ registerLocaleData(en);
     GameContainerComponent,
     StatisticsTableComponent,
     StatisticsTableItemComponent,
+    PlayerCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ registerLocaleData(en);
       VenadosGamesDataService,
       VenadosStatisticsService,
       TabSelectorService,
-      LoadingService
+      LoadingService,
+      VenadosPlayersService
   ],
   bootstrap: [AppComponent]
 })
